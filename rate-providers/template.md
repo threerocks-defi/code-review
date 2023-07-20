@@ -17,32 +17,32 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 ### Administrative Privileges
 - [ ] The Rate Provider is upgradeable (e.g., via a proxy architecture or an `onlyOwner` function that updates the price source address).
 <Delete this hint: If unchecked, delete all of the bullets below.>
-* admin address: [<network:address>](<link to contract block explorer>)
-* admin type: <EOA/multisig>
-    * <Delete this hint: If EOA, delete this whole sub-section.>
-    * multisig threshold/signers: <X/Y>
-    * multisig timelock? <YES: minimum duration/NO>
-    * trustworthy signers? <YES/NO> <Delete this hint: Are the signers known entities such as Vitalik, Hudson, samczsun, or Fernando? Or are they random addresses?>
+    * admin address: [<network:address>](<link to contract block explorer>)
+    * admin type: <EOA/multisig>
+        * <Delete this hint: If EOA, delete this whole sub-section.>
+        * multisig threshold/signers: <X/Y>
+        * multisig timelock? <YES: minimum duration/NO>
+        * trustworthy signers? <YES/NO> <Delete this hint: Are the signers known entities such as Vitalik, Hudson, samczsun, or Fernando? Or are they random addresses?>
 
 - [ ] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price).
 <Delete this hint: If unchecked, delete all of the bullets below.>
-* admin address: [<network:address>](<link to contract block explorer>)
-* admin type: <EOA/multisig>
-    * <Delete this hint: If EOA, delete this whole sub-section.>
-    * multisig threshold/signers: <X/Y>
-    * multisig timelock? <YES: minimum duration/NO>
-    * trustworthy signers? <YES/NO> <Delete this hint: Are the signers known entities such as Vitalik, Hudson, samczsun, or Fernando? Or are they random addresses?>
+    * admin address: [<network:address>](<link to contract block explorer>)
+    * admin type: <EOA/multisig>
+        * <Delete this hint: If EOA, delete this whole sub-section.>
+        * multisig threshold/signers: <X/Y>
+        * multisig timelock? <YES: minimum duration/NO>
+        * trustworthy signers? <YES/NO> <Delete this hint: Are the signers known entities such as Vitalik, Hudson, samczsun, or Fernando? Or are they random addresses?>
 
 ### Oracles
 - [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
 <Delete this hint: If unchecked, delete all of the bullets below.>
-* source: <Delete this hint: If Chainlink, just write "Chainlink". Otherwise, elaborate.>
-* source address: [<network:address>](<link to contract block explorer>)
+    * source: <Delete this hint: If Chainlink, just write "Chainlink". Otherwise, elaborate.>
+    * source address: [<network:address>](<link to contract block explorer>)
 
 - [ ] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price).
 <Delete this hint: If unchecked, delete all of the bullets below.>
-* description: <X in terms of Y> <Delete this hint: e.g., wstETH in terms of ETH>
-* should be: <A in terms of B> <Delete this hint: e.g., wstETH in terms of stETH>
+    * description: <X in terms of Y> <Delete this hint: e.g., wstETH in terms of ETH>
+    * should be: <A in terms of B> <Delete this hint: e.g., wstETH in terms of stETH>
 
 ### Common Manipulation Vectors
 - [ ] The Rate Provider is susceptible to donation attacks.
