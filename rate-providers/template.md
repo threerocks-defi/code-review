@@ -28,7 +28,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
     - admin type: \<EOA/multisig\> \<Delete this hint: If EOA, delete the whole sub-section below.\>
         - multisig threshold/signers: \<X/Y\>
         - multisig timelock? \<YES: minimum duration/NO\>
-        - trustworthy signers? \<YES/NO\> \<Delete this hint: Are the signers known entities such as Vitalik, Hudson, samczsun, or Fernando? Or are they random addresses?\>
+        - trustworthy signers? \<YES: whom/NO\> \<Delete this hint: Are the signers known entities such as Vitalik, Hudson, samczsun, or Fernando? Or are they random addresses?\>
 
 ### Oracles
 - [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes). \<Delete this hint: If unchecked, delete all of the bullets below.\>
