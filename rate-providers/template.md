@@ -1,13 +1,13 @@
 <Template: Copy this file and replace all elements inside <> brackets. Delete this particular block.>
 
-# <Name of Reviewed Contract>
+# Rate Provider: <Name of Reviewed Contract>
 
 ## Details
 * Reviewed by: <Name of Primary Reviewer>
 * Checked by: <Name of Secondary Reviewer>
 * Deployed at:
-    * [<network:address>](<link to contract on block explorer>)
-    * [<network:address>](<link to contract on block explorer>)
+    * <[<network:address>](<link to contract on block explorer>)>
+    * <[<network:address>](<link to contract on block explorer>)>
 
 ## Review Checklist: Common Findings
 Each of the items below represents a common red flag found in Rate Provider contracts.
@@ -17,7 +17,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 ### Administrative Privileges
 - [ ] The Rate Provider is upgradeable (e.g., via a proxy architecture or an `onlyOwner` function that updates the price source address).
 <Delete this hint: If unchecked, delete all of the bullets below.>
-    * admin address: [<network:address>](<link to contract block explorer>)
+    * admin address: <[<network:address>](<link to contract block explorer>)>
     * admin type: <EOA/multisig>
         * <Delete this hint: If EOA, delete this whole sub-section.>
         * multisig threshold/signers: <X/Y>
@@ -26,7 +26,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 
 - [ ] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price).
 <Delete this hint: If unchecked, delete all of the bullets below.>
-    * admin address: [<network:address>](<link to contract block explorer>)
+    * admin address: <[<network:address>](<link to contract block explorer>)>
     * admin type: <EOA/multisig>
         * <Delete this hint: If EOA, delete this whole sub-section.>
         * multisig threshold/signers: <X/Y>
@@ -37,7 +37,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 - [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
 <Delete this hint: If unchecked, delete all of the bullets below.>
     * source: <Delete this hint: If Chainlink, just write "Chainlink". Otherwise, elaborate.>
-    * source address: [<network:address>](<link to contract block explorer>)
+    * source address: <[<network:address>](<link to contract block explorer>)>
 
 - [ ] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price).
 <Delete this hint: If unchecked, delete all of the bullets below.>
