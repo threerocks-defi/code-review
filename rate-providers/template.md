@@ -34,6 +34,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 - [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes). \<Delete this hint: If unchecked, delete all of the bullets below.\>
     - source: \<Delete this hint: If Chainlink, just write "Chainlink". Otherwise, elaborate.\>
     - source address: [\<network:address\>](\<link to contract block explorer\>)
+    - any protections? \<YES: elaborate/NO\> \<Delete this hint: e.g., maximum rate delta\>
 
 - [ ] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price). \<Delete this hint: If unchecked, delete all of the bullets below.\>
     - description: \<X in terms of Y\> \<Delete this hint: e.g., wstETH in terms of ETH\>
