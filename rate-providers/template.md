@@ -3,11 +3,12 @@
 # Rate Provider: `\<Name of Reviewed Contract\>`
 
 ## Details
-- Reviewed by: \<Name of Primary Reviewer\>
-- Checked by: \<Name of Secondary Reviewer\>
+- Reviewed by: @\<GitHub handle of primary reviewer\>
+- Checked by: @\<GitHub handle of secondary reviewer\>
 - Deployed at:
     - [\<network:address\>](\<link to contract on block explorer\>)
     - [\<network:address\>](\<link to contract on block explorer\>)
+- Description: \<Write a brief description of the intended functionality here.\>
 
 ## Review Checklist: Common Findings
 Each of the items below represents a common red flag found in Rate Provider contracts.
