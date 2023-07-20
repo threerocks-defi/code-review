@@ -17,16 +17,14 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 ### Administrative Privileges
 - [ ] The Rate Provider is upgradeable (e.g., via a proxy architecture or an `onlyOwner` function that updates the price source address). \<Delete this hint: If unchecked, delete all of the bullets below.\>
     - admin address: [\<network:address\>](\<link to contract block explorer\>)
-    - admin type: \<EOA/multisig\>
-        - \<Delete this hint: If EOA, delete this whole sub-section.\>
+    - admin type: \<EOA/multisig\> \<Delete this hint: If EOA, delete the whole sub-section below.\>
         - multisig threshold/signers: \<X/Y\>
         - multisig timelock? \<YES: minimum duration/NO\>
         - trustworthy signers? \<YES/NO\> \<Delete this hint: Are the signers known entities such as Vitalik, Hudson, samczsun, or Fernando? Or are they random addresses?\>
 
 - [ ] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price). \<Delete this hint: If unchecked, delete all of the bullets below.\>
     - admin address: [\<network:address\>](\<link to contract block explorer\>)
-    - admin type: \<EOA/multisig\>
-        - \<Delete this hint: If EOA, delete this whole sub-section.\>
+    - admin type: \<EOA/multisig\> \<Delete this hint: If EOA, delete the whole sub-section below.\>
         - multisig threshold/signers: \<X/Y\>
         - multisig timelock? \<YES: minimum duration/NO\>
         - trustworthy signers? \<YES/NO\> \<Delete this hint: Are the signers known entities such as Vitalik, Hudson, samczsun, or Fernando? Or are they random addresses?\>
