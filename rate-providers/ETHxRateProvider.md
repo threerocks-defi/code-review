@@ -5,7 +5,15 @@
 - Checked by: @baileyspraggins
 - Deployed at:
     - [ethereum:0xAAE054B9b822554dd1D9d1F48f892B4585D3bbf0](https://etherscan.io/address/0xAAE054B9b822554dd1D9d1F48f892B4585D3bbf0#code)
-- Description: [Stader Labs](https://www.staderlabs.com/) has developed this Rate Provider to price their ETHx liquid staking token in terms of ETH. At time of writing, ETHx has been [audited](https://www.staderlabs.com/docs-v1/Ethereum/Smart_Contract_audits) by Halborn and SigmaPrime.
+
+## Context
+[Stader Labs](https://www.staderlabs.com/) has developed this Rate Provider to price their ETHx liquid staking token in terms of ETH. At time of writing, ETHx has been [audited](https://www.staderlabs.com/docs-v1/Ethereum/Smart_Contract_audits) by Halborn and SigmaPrime.
+
+## Review Checklist: Bare Minimum Compatibility
+Each of the items below represents an absolute requirement for the Rate Provider. If any of these is unchecked, the Rate Provider is unfit to use.
+
+- [x] Implements the [`IRateProvider`](https://github.com/balancer/balancer-v2-monorepo/blob/bc3b3fee6e13e01d2efe610ed8118fdb74dfc1f2/pkg/interfaces/contracts/pool-utils/IRateProvider.sol) interface.
+- [x] Returns an 18-decimal fixed point number (i.e., 1 == 1e18).
 
 ## Review Checklist: Common Findings
 Each of the items below represents a common red flag found in Rate Provider contracts.

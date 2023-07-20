@@ -8,7 +8,15 @@
 - Deployed at:
     - [\<network:address\>](\<link to contract on block explorer\>)
     - [\<network:address\>](\<link to contract on block explorer\>)
-- Description: \<Write a brief description of the intended functionality here.\>
+
+## Context
+\<Write a brief description of the intended functionality here.\>
+
+## Review Checklist: Bare Minimum Compatibility
+Each of the items below represents an absolute requirement for the Rate Provider. If any of these is unchecked, the Rate Provider is unfit to use.
+
+- [ ] Implements the [`IRateProvider`](https://github.com/balancer/balancer-v2-monorepo/blob/bc3b3fee6e13e01d2efe610ed8118fdb74dfc1f2/pkg/interfaces/contracts/pool-utils/IRateProvider.sol) interface.
+- [ ] Returns an 18-decimal fixed point number (i.e., 1 == 1e18).
 
 ## Review Checklist: Common Findings
 Each of the items below represents a common red flag found in Rate Provider contracts.
