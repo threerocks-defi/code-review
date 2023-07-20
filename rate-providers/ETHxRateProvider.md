@@ -7,7 +7,7 @@
     - [ethereum:0xAAE054B9b822554dd1D9d1F48f892B4585D3bbf0](https://etherscan.io/address/0xAAE054B9b822554dd1D9d1F48f892B4585D3bbf0#code)
 
 ## Context
-[Stader Labs](https://www.staderlabs.com/) has developed this Rate Provider to price their ETHx liquid staking token in terms of ETH. At time of writing, ETHx has been [audited](https://www.staderlabs.com/docs-v1/Ethereum/Smart_Contract_audits) by Halborn and SigmaPrime.
+[Stader Labs](https://www.staderlabs.com/) has developed this Rate Provider to price their `ETHx` liquid staking token in terms of `ETH`. At time of writing, `ETHx` has been [audited](https://www.staderlabs.com/docs-v1/Ethereum/Smart_Contract_audits) by Halborn and SigmaPrime.
 
 ## Review Checklist: Bare Minimum Compatibility
 Each of the items below represents an absolute requirement for the Rate Provider. If any of these is unchecked, the Rate Provider is unfit to use.

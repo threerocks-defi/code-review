@@ -46,8 +46,8 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
     - any protections? \<YES: elaborate/NO\> \<Delete this hint: e.g., maximum rate delta\>
 
 - [ ] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price). \<Delete this hint: If unchecked, delete all of the bullets below.\>
-    - description: \<X in terms of Y\> \<Delete this hint: e.g., wstETH in terms of ETH\>
-    - should be: \<A in terms of B\> \<Delete this hint: e.g., wstETH in terms of stETH\>
+    - description: \<`X` in terms of `Y`\> \<Delete this hint: e.g., `wstETH` in terms of `ETH`\>
+    - should be: \<`A` in terms of `B`\> \<Delete this hint: e.g., `wstETH` in terms of `stETH`\>
 
 ### Common Manipulation Vectors
 - [ ] The Rate Provider is susceptible to donation attacks.
