@@ -1,4 +1,4 @@
-# Rate Provider: ETHxRateProvider
+# Rate Provider: `ETHxRateProvider`
 
 ## Details
 - Reviewed by: Rab
@@ -15,7 +15,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 - [ ] The Rate Provider is upgradeable (e.g., via a proxy architecture or an `onlyOwner` function that updates the price source address).
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price).
-    - upgradeable component: StaderStakePoolsManager ([ethereum:0xcf5EA1b38380f6aF39068375516Daf40Ed70D299](https://etherscan.io/address/0xcf5EA1b38380f6aF39068375516Daf40Ed70D299#code))
+    - upgradeable component: `StaderStakePoolsManager` ([ethereum:0xcf5EA1b38380f6aF39068375516Daf40Ed70D299](https://etherscan.io/address/0xcf5EA1b38380f6aF39068375516Daf40Ed70D299#code))
     - admin address: [ethereum:0x45B977CeCB9Dfaa17dFcBa88826ef684b8489fF6](https://etherscan.io/address/0x45B977CeCB9Dfaa17dFcBa88826ef684b8489fF6#code)
     - admin type: multisig
         - multisig threshold/signers: 6/9
@@ -24,7 +24,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 
 ### Oracles
 - [x] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
-    - source: StaderStakePoolsManager, accepts price update proposals from a majority of 7 (minimum 5) nodes
+    - source: `StaderStakePoolsManager` accepts price update proposals from a majority of 7 (minimum 5) nodes
     - source address: [ethereum:0xcf5EA1b38380f6aF39068375516Daf40Ed70D299](https://etherscan.io/address/0xcf5EA1b38380f6aF39068375516Daf40Ed70D299#code)
     - any protections? YES: maximum rate delta is 1%
 
