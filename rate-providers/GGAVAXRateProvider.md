@@ -27,7 +27,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price).
     - upgradeable component: `ggAVAX` ([avalanche:0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3](https://snowtrace.io/address/0xa25eaf2906fa1a3a13edac9b9657108af7b703e3))
-        - admin address: [avalanche:0xA30694d32533672EF0B9E2288f2b886AE5F949a2](https://snowtrace.io/address/0xa30694d32533672ef0b9e2288f2b886ae5f949a2#code)
+        - admin address: [avalanche:0x6C104D5b914931BA179168d63739A297Dc29bCF3](https://snowtrace.io/address/0x6c104d5b914931ba179168d63739a297dc29bcf3#code)
         - admin type: multisig
             - multisig threshold/signers: 2/4
             - multisig timelock? NO
