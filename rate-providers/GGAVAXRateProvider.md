@@ -1,5 +1,7 @@
 # Rate Provider: `GGAVAXRateProvider`
 
+**NOTE: An earlier version of this review pointed out some issues which have since been addressed. Please consult the git history for reference.**
+
 ## Details
 - Reviewed by: @mkflow27
 - Checked by: @rabmarut
@@ -25,8 +27,11 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price).
     - upgradeable component: `ggAVAX` ([avalanche:0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3](https://snowtrace.io/address/0xa25eaf2906fa1a3a13edac9b9657108af7b703e3))
-        - admin address: [avalanche:0xf5c149aCB200f5BC8FC5e51dF4a7DEf38d64cfB2](https://snowtrace.io/address/0xf5c149acb200f5bc8fc5e51df4a7def38d64cfb2)
-        - admin type: EOA
+        - admin address: [avalanche:0xA30694d32533672EF0B9E2288f2b886AE5F949a2](https://snowtrace.io/address/0xa30694d32533672ef0b9e2288f2b886ae5f949a2#code)
+        - admin type: multisig
+            - multisig threshold/signers: 2/4
+            - multisig timelock? NO
+            - trustworthy signers? NO (can't identify any)
 
 ### Oracles
 - [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes). 
@@ -72,8 +77,8 @@ To save time, we do not bother pointing out low-severity/informational issues or
 No additional findings.
 
 ## Conclusion
-**Summary judgment: UNSAFE**
+**Summary judgment: SAFE FOR BALANCER, POTENTIALLY UNSAFE FOR DOWNSTREAM INTEGRATIONS**
 
-While the Rate Provider works as intended, the downstream consequence of the `ggAVAX` token being upgradeable by an EOA can be severe. In order to be deemed safe, the reviewer would like to see the proxy admin changed from an EOA to a transparent multisig.
+Assuming a reasonable set of 2/4 multisig signers, the behavior of this Rate Provider can be deemed safe. All current system components are fully on-chain and cannot be arbitrarily influenced by any actor, even a privileged one. As such, upgradeability would be the only concern, and that falls to the multisig.
 
-The risk of donation attacks is also worth pointing out; this won't directly impact Balancer pools, but it can have consequences for downstream integrations.
+The risk of donation attacks is also worth pointing out; this won't directly impact Balancer pools, but it can have consequences for downstream integrations. Integrators should be wary of the underlying token's manipulability via donations, which will propagate into the BPT price itself.
