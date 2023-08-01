@@ -1,5 +1,7 @@
 # Rate Provider: `AnkrETHRateProvider`
 
+**NOTE: An earlier version of this review pointed out some issues which have since been addressed. Please consult the git history for reference.**
+
 ## Details
 - Reviewed by: @mkflow27
 - Checked by: @rabmarut
@@ -40,22 +42,17 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
             - multisig threshold/signers: 3/5
             - multisig timelock? NO
             - trustworthy signers? NO (can't identify any)
-    - upgradeable component: `InternetBondRatioFeed_R2` ([avalanche:0xEf3C162450E1d08804493aA27BE60CDAa054050F](https://snowtrace.io/address/0xEf3C162450E1d08804493aA27BE60CDAa054050F#code))
-        - admin address: [avalanche:0xF508AE11De875b2136C580229d1B8291F1EC2B7E](https://snowtrace.io/address/0xf508ae11de875b2136c580229d1b8291f1ec2b7e#code)
-        - admin type: multisig (same as above)
-            - multisig threshold/signers: 3/5
-            - multisig timelock? NO
-            - trustworthy signers? NO (can't identify any)
+    - upgradeable component: `InternetBondRatioFeed_R3` ([avalanche:0xEf3C162450E1d08804493aA27BE60CDAa054050F](https://snowtrace.io/address/0xEf3C162450E1d08804493aA27BE60CDAa054050F#code))
+        - admin address: same as above
 
 ### Oracles
 - [x] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
-    - source: `InternetBondRatioFeed_R2` accepts updates from the 3/5 multisig mentioned above (here called `owner`), or an `operator` designated by the `owner`
+    - source: `InternetBondRatioFeed_R3` accepts updates from the 3/5 multisig mentioned above (here called `owner`), or an `operator` designated by the `owner`
     - source address: [avalanche:0xEf3C162450E1d08804493aA27BE60CDAa054050F](https://snowtrace.io/address/0xEf3C162450E1d08804493aA27BE60CDAa054050F#code)
     - any protections? YES **but only for `operators`. The 3/5 multisig `owner` can always override.** For `operators`:
         - rate monotonically increases
         - rate delta is within configurable (by `owner`) threshold
-        - 12 hours minimum between updates (**NOTE: this is broken, see below**)
-        - **NOTE: the zkEVM deployment seems to use an [older version](https://zkevm.polygonscan.com/address/0x8886d04007871becbffbde6e4b8a66090956e1b1#code) of the implementation which lacks any protections for `operators` (see below)**
+        - 12 hours minimum between updates
 
 - [ ] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price).
 
@@ -65,46 +62,9 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 ## Additional Findings
 To save time, we do not bother pointing out low-severity/informational issues or gas optimizations (unless the gas usage is particularly egregious). Instead, we focus only on high- and medium-severity findings which materially impact the contract's functionality and could harm users.
 
-### M-01: A privileged `operator` can bypass the 12-hour minimum update period
-In the implementation of [`InternetBondRatioFeed_R2`](https://snowtrace.io/address/0x6870edcd297f33ea986d4cf975ee049e668b36fe#code), there is a check in the `_ratioRules()` function that is clearly designed to cap the update frequency at every 12 hours:
-
-```solidity
-require(
-    block.timestamp - lastUpdated >= 12 hours,
-    "ratio was updated less than 12 hours ago"
-);
-```
-
-However, another check in `updateRatioBatch()` prevents `hisRatio.lastUpdate` (passed as `lastUpdated` above) from being set unless at least **24 hours** has passed:
-
-```solidity
-if (block.timestamp - hisRatio.lastUpdate > 1 days - 1 minutes) {
-    uint64 latestOffset = hisRatio.historicalRatios[0];
-    hisRatio.historicalRatios[
-        ((latestOffset + 1) % 8) + 1
-    ] = uint64(ratios[i]);
-    hisRatio.historicalRatios[0] = latestOffset + 1;
-    hisRatio.lastUpdate = uint40(block.timestamp);
-}
-```
-
-Therefore, between 12 and 24 hours after the most recent update, a designated `operator` can call `updateRatioBatch()` as many times as they want. During this window, the first check will pass but the second will fail. When this happens, `_ratios` is properly updated, but `hisRatio.lastUpdate` is not.
-
-#### Impact
-This makes it possible to update `_ratios` many times in a single block or over multiple blocks, effectively bypassing the `_ratioThreshold` and escalating an `operator`'s privilege to be more similar to the `owner`'s. Note that the `owner` can **always** arbitrarily update `_ratios`, but our trust assumptions for an `operator` are meant to be more restricted.
-
-### M-02: The deployment on zkEVM is outdated and unprotected (relative to other networks)
-The zkEVM deployment seems to use an older version of `InternetBondRatioFeed_R2` called [`InternetBondRatioFeed_R1`](https://zkevm.polygonscan.com/address/0x8886d04007871becbffbde6e4b8a66090956e1b1#code). This version lacks any protections for `operators`; when it comes to updating the price ratio, an `operator` is identical to the `owner`.
-
-#### Impact
-An `operator` can provide updates to `_ratios` at any time and any magnitude, not monotonically increasing or constrained within a threshold.
+There are no additional findings.
 
 ## Conclusion
-**Summary judgment: UNSAFE**
+**Summary judgment: SAFE**
 
-The trustworthiness of this Rate Provider largely hinges on the trustworthiness of a 3/5 multisig whose signers are unclear to the reviewer. Given both M-01 and M-02, it also hinges on the multisig's reasonable discretion in designating `operators`, who possess almost as much power as the multisig itself. It appears that at least one `operator` is an EOA, so this may be a very risky proposition.
-
-In order to be deemed safe, the reviewer would like to see:
-- M-01 patched
-- M-02 patched
-- A transparent report detailing the signers of the 3/5 multisig
+Assuming a reasonable set of 3/5 multisig signers, the behavior of this Rate Provider can be deemed safe. Reasonable protections are placed upon all other actors in the system.
