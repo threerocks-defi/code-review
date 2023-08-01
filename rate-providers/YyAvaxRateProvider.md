@@ -1,5 +1,7 @@
 # Rate Provider: `YyAvaxRateProvider`
 
+**NOTE: An earlier version of this review pointed out some issues which have since been addressed. Please consult the git history for reference.**
+
 ## Details
 - Reviewed by: @mkflow27
 - Checked by: @rabmarut
@@ -7,7 +9,7 @@
     - [avalanche:0x13a80aBe608A054059CfB54Ef08809a05Fc07b82](https://snowtrace.io/address/0x13a80aBe608A054059CfB54Ef08809a05Fc07b82#code)
 
 ## Context
-???
+Yield Yak's yyAVAX is a liquid staking token which earns yield from aggregated validation on the Avalanche P-Chain.
 
 ## Review Checklist: Bare Minimum Compatibility
 Each of the items below represents an absolute requirement for the Rate Provider. If any of these is unchecked, the Rate Provider is unfit to use.
@@ -25,8 +27,11 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price).
     - upgradeable component: `Portal` ([avalanche:0x4fe8C658f268842445Ae8f95D4D6D8Cfd356a8C8](https://snowtrace.io/address/0x4fe8C658f268842445Ae8f95D4D6D8Cfd356a8C8#code))
-        - admin address: [avalanche:0x1B007c50E78ed35fDFAd395BC41C1DBD8Bb9E385](https://snowtrace.io/address/0x1b007c50e78ed35fdfad395bc41c1dbd8bb9e385)
-        - admin type: EOA
+        - admin address: [avalanche:0x893b32D796b95De2489900b1646cc30e9eF5337A](https://snowtrace.io/address/0x893b32d796b95de2489900b1646cc30e9ef5337a#code)
+        - admin type: multisig
+            - multisig threshold/signers: 3/4
+            - multisig timelock? NO
+            - trustworthy signers? NO (can't identify any)
 
 ### Oracles
 - [x] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
@@ -34,7 +39,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
         - `gAVAX` address: [avalanche:0x6026a85e11BD895c934Af02647E8C7b4Ea2D9808](https://snowtrace.io/address/0x6026a85e11BD895c934Af02647E8C7b4Ea2D9808#code)
         - `Portal` address: [avalanche:0xcF5162a33b05Bf45020A2f047d28C2E47E93958b](https://snowtrace.io/address/0x4fe8C658f268842445Ae8f95D4D6D8Cfd356a8C8#code)
         - `ORACLE` address: [avalanche:0xA30694d32533672EF0B9E2288f2b886AE5F949a2](https://snowtrace.io/address/0xa30694d32533672ef0b9e2288f2b886ae5f949a2#code)
-            - 1/1 multisig
+            - 3/4 multisig (2 common signers with multisig above)
     - any protections? YES
         - update only once per day in a 30-minute window
         - price increases monotonically
@@ -48,11 +53,9 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 ## Additional Findings
 To save time, we do not bother pointing out low-severity/informational issues or gas optimizations (unless the gas usage is particularly egregious). Instead, we focus only on high- and medium-severity findings which materially impact the contract's functionality and could harm users.
 
+No additional findings.
+
 ## Conclusion
-**Summary judgment: UNSAFE**
+**Summary judgment: SAFE**
 
-An EOA has upgrade privileges over the core of the system (`Portal`), and a 1/1 multisig provides price updates. The multisig is quite constrained in choosing updated prices _now_, but it can easily be given more authority if the `Portal` is upgraded by the EOA admin. This level of trust in singular entities is unacceptable.
-
-In order to be deemed safe, the reviewer would like to see:
-- A non-EOA admin of the `Portal` contract
-- More signers added to the multisig, along with a transparent report detailing all of the signers
+Assuming a reasonable set of 3/4 multisig signers, the behavior of this Rate Provider can be deemed safe. Reasonable protections are placed upon oracle updates, so the only concern would be upgradeability, which falls to the multisig.
