@@ -7,7 +7,7 @@
     - This review was performed pre-deployment.
 
 ## Context
-The `TBYRateProvider` is a RateProvider for Blueberrie's Bloom Protocol. This RateProvider will be used for future Balancer pools that are created for TBY. TBYs are Term Bound Yield Tokens, which are treasury-backed Debt tokens that pegged to Blackrock's ib01, 1 year treasury bond. stUSD is a stable coin backed by TBYs. This RateProvider will be used to calculate the price of TBYs using Chainlinks [ib01](https://data.chain.link/ethereum/mainnet/indexes/ib01-usd). The `owner` of `BPSFeed` will update the price feeds as needed, and any user can view the current price of the corresponding token by calling `getWeightedRate`, which returns the total value of the token with up to date appreciation based on the current block timestamp. The `TBYRateProvider` works as a wrapper around a `BPSFeed` to allow for Balancer Pool integration. `TBYRateProvder`'s `getRate` function will return the current weighted rate of the TBY token.
+The `TBYRateProvider` is a RateProvider for Blueberrey's Bloom Protocol. This RateProvider will be used for future Balancer pools that are created for TBY. TBYs are Term Bound Yield Tokens, which are treasury-backed debt tokens that are pegged to Blackrock's ib01, 1 year treasury bond. This RateProvider will be used to calculate the price of TBYs using Chainlink's [ib01](https://data.chain.link/ethereum/mainnet/indexes/ib01-usd) oracle. The `owner` of `BPSFeed` will update the price feeds as needed, and any user can view the current price by calling `getWeightedRate`, which returns the total value of the token, including interest gained since `currentRate` was updated. The `TBYRateProvider` works as a wrapper around a `BPSFeed` to allow for Balancer Pool integration. `TBYRateProvder`'s `getRate` function will return the current weighted rate of the TBY Token.
 
 ## Review Checklist: Bare Minimum Compatibility
 Each of the items below represents an absolute requirement for the Rate Provider. If any of these is unchecked, the Rate Provider is unfit to use.
@@ -29,7 +29,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
     - admin type: Multisig
         - multisig threshold/signers: 4
         - multisig timelock? NO
-        - trustworthy signers? Yes - Chainlink
+        - trustworthy signers? Yes - Chainlink Multisig
 
 ### Oracles
 - [x] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
@@ -38,7 +38,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
     - any protections? NO
 
 - [x] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price). 
-    - Price data mirrors the price of a 1 year treasury bond, from Blackrocks IB01, which are expected monotonically increases longterm with slight short term volitility.
+    - Price data mirrors the price of a 1 year treasury bond, from Blackrocks IB01, which is expected to monotonically increase longterm with slight short term volitility.
 
 ### Common Manipulation Vectors
 - [ ] The Rate Provider is susceptible to donation attacks.
@@ -46,12 +46,10 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 ## Additional Findings
 To save time, we do not bother pointing out low-severity/informational issues or gas optimizations (unless the gas usage is particularly egregious). Instead, we focus only on high- and medium-severity findings which materially impact the contract's functionality and could harm users.
 
-### \<H-01: Example High-severity Finding\>
-### \<H-02: Example High-severity Finding\>
-### \<M-01: Example Medium-severity Finding\>
-### \<M-02: Example Medium-severity Finding\>
+- N/A
 
 ## Conclusion
-**Summary judgment: \<SAFE/UNSAFE\>**
+**Summary judgment: UNKNOWN**
 
-\<Delete this hint: Formulate a nuanced conclusion here. Remember, it's okay if some of the boxes above are checked as long as reasonable protections are in place. If the Rate Provider is very obviously safe, say so. If it's very obviously not, say so: what specifically needs to change before it can be considered safe? If the conclusion is hazy, explain why, and leave the final determination up to the reader. Examples of completely unacceptable conditions include, but are not limited to: EOA admins, EOA price sources, market prices (instead of deposit/redemption prices).\>
+On initial review Blueberry's `TBYRateProvider` it cannot be confirmed whether the rateProvider is SAFE or UNSAFE to use in pools. The rateProvider satisfies the minimum requirements, but the details regarding the Multisig that is the `owner` of the `BPSFeed` remain unclear. Besides that the Oracles used are Chainlink, which is a trusted source. Once the details regarding the Multisig are clarified, this review can be updated to confirm whether the rateProvider is SAFE or UNSAFE.
+
