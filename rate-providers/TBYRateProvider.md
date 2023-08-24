@@ -2,14 +2,16 @@
 
 ## Details
 - Reviewed by: @baileyspraggins
-- Checked by: @\<GitHub handle of secondary reviewer\>
+- Checked by: @rabmarut
 - Deployed at:
-    - This review was performed pre-deployment.
     - `TBYRateProvider`: [ethereum:]()
-    - `BPSFeed`: [ethereum:0xde1f5f2d69339171d679fb84e4562febb71f36e6](https://etherscan.io/address/0xde1f5f2d69339171d679fb84e4562febb71f36e6)
 
 ## Context
-The `TBYRateProvider` is a RateProvider for Blueberrey's Bloom Protocol. This RateProvider will be used for future Balancer pools that are created for TBY. TBYs are Term Bound Yield Tokens, which are treasury-backed debt tokens that follow the interest rate of Blackrock's ib01 1 year treasury bond. This RateProvider will be used to calculate the price of TBYs using Bloom's `ExchangeRateRegistry`. This registry is used to keep track of all TBYs in circulation as well as providing current exchange rates for each token in terms of USD. The exchange rate is calculated using `BPSFeed` and the time to maturaty for a given token. `BPSFeed`'s owner will update the price feed periodically using the average interest rate of ib01. This value is calculated off-chain, using Chainlink's [ib01 oracle](https://data.chain.link/ethereum/mainnet/indexes/ib01-usd), scaled down to four decimals. Users can view the current price by calling `getWeightedRate`, which returns the interest rate of the token, including interest gained since `currentRate` was updated.
+The `TBYRateProvider` is a RateProvider for Blueberrey's Bloom Protocol. This RateProvider will be used for future Balancer pools that are created for TBY. TBYs are Term Bound Yield Tokens, which are treasury-backed debt tokens that accrue interest at the same rate as Blackrock's ib01 1-year treasury bond.
+
+This RateProvider will be used to calculate the price of TBYs using Bloom's `ExchangeRateRegistry`. The registry keeps track of all TBYs in circulation and provides current exchange rates for each token in terms of USD. The exchange rate is calculated using `BPSFeed` and the time to maturity for a given token.
+
+`BPSFeed` stores the current interest rate of ib01 as well as a weighted average of all interest rates over time. The current interest rate is calculated off-chain, using Chainlink's [ib01 oracle](https://data.chain.link/ethereum/mainnet/indexes/ib01-usd) scaled down to four decimals, and is provided by `BPSFeed`'s owner. The weighted average can be queried using `getWeightedRate`.
 
 ## Review Checklist: Bare Minimum Compatibility
 Each of the items below represents an absolute requirement for the Rate Provider. If any of these is unchecked, the Rate Provider is unfit to use.
@@ -29,23 +31,22 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 
 ### Oracles
 - [x] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
-    - source: Multisig
-        - source address: [ethereum:0x91797a79fEA044D165B00D236488A0f2D22157BC](https://etherscan.io/address/0x91797a79fEA044D165B00D236488A0f2D22157BC)
-        - any protections? YES 
+    - source: `BPSFeed` accepts updates from a multisig `owner`
+        - source address: [ethereum:0xDe1f5F2d69339171D679FB84E4562febb71F36E6](https://etherscan.io/address/0xDe1f5F2d69339171D679FB84E4562febb71F36E6#code)
+        - multisig address: [ethereum:0x91797a79fEA044D165B00D236488A0f2D22157BC](https://etherscan.io/address/0x91797a79fEA044D165B00D236488A0f2D22157BC#code)
             - multisig threshold/signers: 2/3
+            - multisig timelock? NO
             - trustworthy signers? NO - All non-ENS addresses
                 - [ethereum:0x21c2bd51f230D69787DAf230672F70bAA1826F67](https://etherscan.io/address/0x21c2bd51f230D69787DAf230672F70bAA1826F67)
                 - [ethereum:0x4850D609D34389F5E3d8A61c41091f2f3de595C3](https://etherscan.io/address/0x4850D609D34389F5E3d8A61c41091f2f3de595C3)
                 - [ethereum:0xCe64ACD38C96c3C8ed0522Af01B4fAd082BEaCeF](https://etherscan.io/address/0xCe64ACD38C96c3C8ed0522Af01B4fAd082BEaCeF)
-            - rate update protections:
-                - Interest rate cannot be less than 0% and has a ceiling of 50%. 
-    - source: Chainlink
-        - source address: [ethereum:0x32d1463eb53b73c095625719afa544d5426354cb](https://etherscan.io/address/0x32d1463eb53b73c095625719afa544d5426354cb)
-        - any protections? NO
+        - any protections? YES
+            - Interest rate cannot be less than 0% or more than 50%.
+            - Time-weighted average greatly dampens impact of any manipulation by the owner.
 
 - [ ] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price).
-    - While the price data tracks the average interest rate of ib01, the tokens exchange rate will monotonically increase until its maturity date.
-
+    - While `BPSFeed` tracks the average interest rate of ib01, the token's exchange rate will monotonically increase until its maturity date.
+    
 ### Common Manipulation Vectors
 - [ ] The Rate Provider is susceptible to donation attacks.
 
