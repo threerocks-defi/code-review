@@ -5,7 +5,8 @@
 - Checked by: @rabmarut
 - Deployed at:
     - `TBYRateProviderFactory`: [ethereum:0x97390050B63eb56C0e39bB0D8d364333Eb3AFD12](https://etherscan.io/address/0x97390050B63eb56C0e39bB0D8d364333Eb3AFD12)
-
+- Audit report(s):
+    - [Bloom-security-review](https://github.com/pashov/audits/blob/master/solo/Bloom-security-review.md): Protocol audit completed by [pashov](https://github.com/pashov).
 ## Context
 The `TBYRateProvider` is a RateProvider for Blueberrey's Bloom Protocol. This RateProvider will be used for future Balancer pools that are created for TBY. TBYs are Term Bound Yield Tokens, which are treasury-backed debt tokens that accrue interest at the same rate as Blackrock's ib01 1-year treasury bond.
 
