@@ -5,10 +5,7 @@
             "summary": "safe",
             "review": "./AnkrETHRateProvider.md",
             "warnings": [],
-            "factory": {
-                "isFromFactory": "false",
-                "factoryAddress": ""
-            },
+            "factory": "",
             "upgradeableComponents": [
                 {
                     "entrypoint": "0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3",
@@ -25,10 +22,7 @@
             "summary": "safe",
             "review": "./BalancerRateProvider_USDF.md",
             "warnings": [],
-            "factory": {
-                "isFromFactory": "false",
-                "factoryAddress": ""
-            },
+            "factory": "",
             "upgradeableComponents": [
                 {
                     "entrypoint": "0x80e1a981285181686a3951B05dEd454734892a09",
@@ -43,10 +37,7 @@
             "summary": "safe",
             "review": "./AnkrETHRateProvider.md",
             "warnings": [],
-            "factory": {
-                "isFromFactory": "false",
-                "factoryAddress": ""
-            },
+            "factory": "",
             "upgradeableComponents": [
                 {
                     "entrypoint": "0x12D8CE035c5DE3Ce39B1fDD4C1d5a745EAbA3b8C",
@@ -65,10 +56,7 @@
             "warnings": [
                 "donation"
             ],
-            "factory": {
-                "isFromFactory": "false",
-                "factoryAddress": ""
-            },
+            "factory": "",
             "upgradeableComponents": [
                 {
                     "entrypoint": "0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3",
@@ -81,10 +69,7 @@
             "summary": "safe",
             "review": "./YyAvaxRateProvider.md",
             "warnings": [],
-            "factory": {
-                "isFromFactory": "false",
-                "factoryAddress": ""
-            },
+            "factory": "",
             "upgradeableComponents": [
                 {
                     "entrypoint": "0x4fe8C658f268842445Ae8f95D4D6D8Cfd356a8C8",
@@ -101,10 +86,7 @@
             "warnings": [
                 "donation"
             ],
-            "factory": {
-                "isFromFactory": "false",
-                "factoryAddress": ""
-            },
+            "factory": "",
             "upgradeableComponents": [
                 {
                     "entrypoint": "0x4beFa2aA9c305238AA3E0b5D17eB20C045269E9d",
@@ -117,10 +99,7 @@
             "summary": "safe",
             "review": "./ETHxRateProvider.md",
             "warnings": [],
-            "factory": {
-                "isFromFactory": "false",
-                "factoryAddress": ""
-            },
+            "factory": "",
             "upgradeableComponents": [
                 {
                     "entrypoint": "0xcf5EA1b38380f6aF39068375516Daf40Ed70D299",
@@ -133,10 +112,7 @@
             "summary": "safe",
             "review": "./TBYRateProvider.md",
             "warnings": [],
-            "factory": {
-                "isFromFactory": "true",
-                "factoryAddress": "0x97390050B63eb56C0e39bB0D8d364333Eb3AFD12"
-            },
+            "factory": "0x97390050B63eb56C0e39bB0D8d364333Eb3AFD12",
             "upgradeableComponents": []
         },
         "0xDceC4350d189Ea7e1DD2C9BDa63cB0e0Ae34b81F": {
@@ -144,10 +120,7 @@
             "summary": "safe",
             "review": "./TBYRateProvider.md",
             "warnings": [],
-            "factory": {
-                "isFromFactory": "true",
-                "factoryAddress": "0x97390050B63eb56C0e39bB0D8d364333Eb3AFD12"
-            },
+            "factory": "0x97390050B63eb56C0e39bB0D8d364333Eb3AFD12",
             "upgradeableComponents": []
         }
     },
@@ -157,10 +130,7 @@
             "summary": "safe",
             "review": "./AnkrETHRateProvider.md",
             "warnings": [],
-            "factory": {
-                "isFromFactory": "false",
-                "factoryAddress": ""
-            },
+            "factory": "",
             "upgradeableComponents": [
                 {
                     "entrypoint": "0x12D8CE035c5DE3Ce39B1fDD4C1d5a745EAbA3b8C",
