@@ -9,7 +9,7 @@
     - [PeckShield-Audit-Report-TranchessV2.1](https://github.com/peckshield/publications/blob/master/audit_reports/PeckShield-Audit-Report-TranchessV2.1-v1.0.pdf)
 
 ## Context
-Queen is a asset that represents ETH deposited into the Primary Market of Tranchess, which can be held long-term to gather liquid staking yield or converted to additional investment strategies such as BISHOP (safer) or ROOK (more aggressive).
+Queen is an asset that represents ETH deposited into the Primary Market of Tranchess, which can be held long-term to gain liquid staking yield or converted to additional investment strategies such as BISHOP (safer) or ROOK (more aggressive).
 
 ## Review Checklist: Bare Minimum Compatibility
 Each of the items below represents an absolute requirement for the Rate Provider. If any of these is unchecked, the Rate Provider is unfit to use.
