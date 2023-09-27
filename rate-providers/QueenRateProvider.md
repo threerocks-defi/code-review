@@ -48,7 +48,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
     }
 
     // @audit - Lives in the Tranchess FundV4 contract.
-    // @audit - The return value of this function is used for fundUnderlying and reflexts changes in the contracts WETH balance.
+    // @audit - The return value of this function is used for fundUnderlying and reflects changes in the contracts WETH balance.
     function getTotalUnderlying() public view override returns (uint256) {
         uint256 hot = IERC20(tokenUnderlying).balanceOf(address(this));
         return hot.add(_strategyUnderlying).sub(_totalDebt);
