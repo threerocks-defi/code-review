@@ -2,7 +2,7 @@
 
 ## Details
 - Reviewed by: @baileyspraggins
-- Checked by: @\<GitHub handle of secondary reviewer\>
+- Checked by: @gerrrg 
 - Deployed at:
     - [eth:0xd8689E8740C23d73136744817347fd6aC464E842>](https://etherscan.io/address/0xd8689E8740C23d73136744817347fd6aC464E842)
 - Audit report(s):
