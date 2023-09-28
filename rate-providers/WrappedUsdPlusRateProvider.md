@@ -2,7 +2,7 @@
 
 ## Details
 - Reviewed by: @baileyspraggins
-- Checked by: @\<GitHub handle of secondary reviewer\>
+- Checked by: @gerrrg 
 - Deployed at:
     - [arbitrum:0x2bA447d4B823338435057571bF70907F8224BB47](https://arbiscan.io/address/0x2bA447d4B823338435057571bF70907F8224BB47)
     - [optimism:0xe561451322a5efC51E6f8ffa558C7482c892Bc1A](https://optimistic.etherscan.io/address/0xe561451322a5efC51E6f8ffa558C7482c892Bc1A)
