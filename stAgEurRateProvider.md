@@ -4,7 +4,7 @@
 
 ## Details
 - Reviewed by: @mkflow27
-- Checked by: @\<GitHub handle of secondary reviewer\>
+- Checked by: @rabmarut
 - Deployed at:
     - [gnosis:0xff315299C4d3FB984b67e31F028724b6a9aEb077](https://gnosisscan.io/address/0xff315299c4d3fb984b67e31f028724b6a9aeb077#code)
 - Audit report(s):
