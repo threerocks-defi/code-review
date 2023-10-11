@@ -30,11 +30,11 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price). 
     - upgradeable component: `stEUR` ([gnosis:0x004626A008B1aCdC4c74ab51644093b155e59A23](https://gnosisscan.io/address/0x004626a008b1acdc4c74ab51644093b155e59a23))
-    - admin address: [gnosis:0x0F70EeD1Bb51d5eDB1a2E46142638df959bAFD69](https://gnosisscan.io/address/0x0f70eed1bb51d5edb1a2e46142638df959bafd69#tokentxns)
-    - admin type: Multisig 
-        - multisig threshold/signers: 4/6
-
-    - The `asset` (agEUR) is upgradeable as well by the same 4/6 Multisig.
+        - admin address: [gnosis:0x0F70EeD1Bb51d5eDB1a2E46142638df959bAFD69](https://gnosisscan.io/address/0x0f70eed1bb51d5edb1a2e46142638df959bafd69)
+        - admin type: Multisig 
+            - multisig threshold/signers: 4/6
+    - upgradeable component: `agEUR` ([gnosis:0x4b1E2c2762667331Bc91648052F646d1b0d35984](https://gnosisscan.io/address/0x4b1e2c2762667331bc91648052f646d1b0d35984))
+        - admin: same 4/6 multisig as above
 
 ### Oracles
 
