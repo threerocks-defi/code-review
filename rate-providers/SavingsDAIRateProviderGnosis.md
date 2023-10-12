@@ -2,7 +2,7 @@
 
 ## Details
 - Reviewed by: @rabmarut
-- Checked by: TODO
+- Checked by: @baileyspraggins
 - Deployed at:
     - [gnosis:0x89C80A4540A00b5270347E02e2E144c71da2EceD](https://gnosisscan.io/address/0x89c80a4540a00b5270347e02e2e144c71da2eced#code)
 - Audit report(s):
