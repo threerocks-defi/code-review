@@ -27,6 +27,7 @@ Each of the items below represents a common red flag found in Rate Provider cont
 If none of these is checked, then this might be a pretty great Rate Provider! If any of these is checked, we must thoroughly elaborate on the conditions that lead to the potential issue. Decision points are not binary; a Rate Provider can be safe despite these boxes being checked. A check simply indicates that thorough vetting is required in a specific area, and this vetting should be used to inform a holistic analysis of the Rate Provider.
 
 ### Administrative Privileges
+- [ ] The Rate Provider is upgradeable (e.g., via a proxy architecture or an `onlyOwner` function that updates the price source address).
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price). 
     - upgradeable component: `stEUR` ([gnosis:0x004626A008B1aCdC4c74ab51644093b155e59A23](https://gnosisscan.io/address/0x004626a008b1acdc4c74ab51644093b155e59a23))
