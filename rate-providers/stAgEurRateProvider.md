@@ -4,7 +4,7 @@
 
 ## Details
 - Reviewed by: @mkflow27
-- Checked by: @\<GitHub handle of secondary reviewer\>
+- Checked by: @rabmarut
 - Deployed at:
     - [gnosis:0xff315299C4d3FB984b67e31F028724b6a9aEb077](https://gnosisscan.io/address/0xff315299c4d3fb984b67e31f028724b6a9aeb077#code)
 - Audit report(s):
@@ -30,19 +30,18 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price). 
     - upgradeable component: `stEUR` ([gnosis:0x004626A008B1aCdC4c74ab51644093b155e59A23](https://gnosisscan.io/address/0x004626a008b1acdc4c74ab51644093b155e59a23))
-    - admin address: [gnosis:0x0F70EeD1Bb51d5eDB1a2E46142638df959bAFD69](https://gnosisscan.io/address/0x0f70eed1bb51d5edb1a2e46142638df959bafd69#tokentxns)
-    - admin type: Multisig 
-        - multisig threshold/signers: 4/6
-
-    - The `asset` (agEUR) is upgradeable as well by the same 4/6 Multisig.
+        - admin address: [gnosis:0x0F70EeD1Bb51d5eDB1a2E46142638df959bAFD69](https://gnosisscan.io/address/0x0f70eed1bb51d5edb1a2e46142638df959bafd69)
+        - admin type: Multisig 
+            - multisig threshold/signers: 4/6
+    - upgradeable component: `agEUR` ([gnosis:0x4b1E2c2762667331Bc91648052F646d1b0d35984](https://gnosisscan.io/address/0x4b1e2c2762667331bc91648052f646d1b0d35984))
+        - admin: same 4/6 multisig as above
 
 ### Oracles
 
 ### Common Manipulation Vectors
 - [x] The Rate Provider is susceptible to donation attacks.
 
-The rate the rateProvider supplies is a function of `totalSupply` of the ERC4626 Vault, which is being influenced bei shares being `mint`ed & `burn`ed - **NOT** by a `balanceOf` function. A flashLoan which `mint` many shares could have a negative impact on the rate due to the `convertToAssets` being called on the ERC4626 Vault by the rateProvider.
-Additionally `totalAssets()` depends on `_asset.balanceOf(address(this))` making this rateProvider also susceptible to donation attacks.
+`totalAssets()` which is used during the computation of `convertToAssets()` depends on `_asset.balanceOf(address(this))` making this rateProvider also susceptible to donation attacks.
 
 ## Additional Findings
 
