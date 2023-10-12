@@ -64,4 +64,6 @@ To save time, we do not bother pointing out low-severity/informational issues or
 
 This is a minimal ERC-4626 Rate Provider that computes the exchange rate using a ratio of deposited assets to minted shares. There are no privileges, upgradeability, or oracles anywhere in the system.
 
+There is a potential risk of donation attacks, but these only impact downstream integrations (not Balancer directly). Integrators should be wary of the underlying token's manipulability via donations, which will propagate into the BPT price itself, and assess the unique risk this poses to their respective protocols.
+
 WARNING: This Rate Provider targets an ERC-4626 Vault whose underlying `asset` has 18 decimals. It will not work with any ERC-4626 Vault whose underlying `asset` has more or fewer than 18 decimals.
