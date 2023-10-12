@@ -156,7 +156,10 @@
             "name": "ERC4626RateProvider",
             "summary": "safe",
             "review": "./stAgEurRateProvider.md",
-            "warnings": ["donation", "decimals"],
+            "warnings": [
+                "donation",
+                "only18decimals"
+            ],
             "factory": "",
             "upgradeableComponents": [
                 {
