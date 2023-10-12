@@ -38,6 +38,8 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
         - admin: same 4/6 multisig as above
 
 ### Oracles
+- [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
+- [ ] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price).
 
 ### Common Manipulation Vectors
 - [x] The Rate Provider is susceptible to donation attacks.
