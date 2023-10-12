@@ -8,7 +8,7 @@
 - Deployed at:
     - [gnosis:0xff315299C4d3FB984b67e31F028724b6a9aEb077](https://gnosisscan.io/address/0xff315299c4d3fb984b67e31f028724b6a9aeb077#code)
 - Audit report(s):
-    - [\<audit title\>](\<link to audit\>)
+    - [Angle Protocol Audits](https://docs.angle.money/resources/audits)
 
 ## Context
 The Staked agEUR rate Provider reports on the exchangeRate of 1 staked agEUR (stEUR) for 1 agEUR (agEUR). agEUR is a Euro stablecoin developed by Angle Labs and governed by the Angle DAO. 
