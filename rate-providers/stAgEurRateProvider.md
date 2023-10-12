@@ -33,6 +33,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
         - admin address: [gnosis:0x0F70EeD1Bb51d5eDB1a2E46142638df959bAFD69](https://gnosisscan.io/address/0x0f70eed1bb51d5edb1a2e46142638df959bafd69)
         - admin type: Multisig 
             - multisig threshold/signers: 4/6
+            - multisig timelock? NO
     - upgradeable component: `agEUR` ([gnosis:0x4b1E2c2762667331Bc91648052F646d1b0d35984](https://gnosisscan.io/address/0x4b1e2c2762667331bc91648052f646d1b0d35984))
         - admin: same 4/6 multisig as above
 
