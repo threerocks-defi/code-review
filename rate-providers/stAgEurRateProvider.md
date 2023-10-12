@@ -47,7 +47,9 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
 `totalAssets()` which is used during the computation of `convertToAssets()` depends on `_asset.balanceOf(address(this))` making this rateProvider also susceptible to donation attacks.
 
 ## Additional Findings
+To save time, we do not bother pointing out low-severity/informational issues or gas optimizations (unless the gas usage is particularly egregious). Instead, we focus only on high- and medium-severity findings which materially impact the contract's functionality and could harm users.
 
+- N/A
 
 ## Conclusion
 **Summary judgment: SAFE**
