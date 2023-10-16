@@ -111,7 +111,9 @@
             "name": "QueenRateProvider",
             "summary": "safe",
             "review": "./QueenRateProvider.md",
-            "warnings": [],
+            "warnings": [
+                "donation"
+            ],
             "factory": "",
             "upgradeableComponents": []
         },
@@ -143,7 +145,9 @@
             "name": "wUSDKRateProvider",
             "summary": "safe",
             "review": "./wUSDKRateProvider.md",
-            "warnings": [],
+            "warnings": [
+                "donation"
+            ],
             "factory": "",
             "upgradeableComponents": []
         }
