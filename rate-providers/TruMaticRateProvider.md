@@ -65,4 +65,4 @@ To save time, we do not bother pointing out low-severity/informational issues or
 ## Conclusion
 **Summary judgment: tbd.**
 
-This Rate Provider computes the exchange rate using a ratio of total assets available to the Vault & vault shares. This rateProvider however reports a slightly different rate compared to what a user would be able to claim as assets, when calling `convertToAssets(1e18)`. This could lead to issues down the line in the lifecycle of the pool. 
+This Rate Provider computes the exchange rate using a ratio of total assets available to the Vault & vault shares.
