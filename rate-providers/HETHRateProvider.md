@@ -145,6 +145,9 @@ function setValidatorStats(uint256 newRewardsAmount, uint256 newTotalETHBalanceI
 ### M01: Implementation contract for `StakingConfiguration` is unverified on etherscan
 This means we are unable to inspect the behavior of the contract, most notably to understand which entities have power to configure system parameters.
 
+- entry point: [ethereum:0x51B2f83aac13adB9Ed826C4cdb593C88e6B61C92](https://etherscan.io/address/0x51B2f83aac13adB9Ed826C4cdb593C88e6B61C92#readProxyContract)
+- implementation: [ethereum:0x8E4AF5f932922962612d0ddba7c2E31CBF1C4a0b](https://etherscan.io/address/0x8e4af5f932922962612d0ddba7c2e31cbf1c4a0b#code)
+
 ## Conclusion
 **Summary judgment: UNSAFE**
 
