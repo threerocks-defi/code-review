@@ -61,12 +61,12 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
     - source: any `maintainer` in the `MaintainersRegistry`
     - source address: [ethereum:0x8B7819135Fe97aBFDc0c88596509c00FA727eaDc](https://etherscan.io/address/0x8B7819135Fe97aBFDc0c88596509c00FA727eaDc#readProxyContract)
     - any protections? YES
-        - maximum balance delta is configurable by UKNOWN (WARNING: implementation contract not verified. See M01 below.)
+        - maximum balance delta is configurable by UKNOWN (WARNING: implementation contract not verified. See L01 below.)
             - current value at time of review is 10%
             - if balance delta is too large, the tx succeeds but the contract is paused
                 - when paused, token transfers are not possible
                 - only the `HordCongress` can unpause
-        - WARNING: there is no time-based guard imposed upon price updates. See H01 below.
+        - WARNING: there is no time-based guard imposed upon price updates. See M01 below.
     - `maintainer` addresses are configurable by `HordCongress`
         - current `maintainer` addresses at time of review:
             - EOA: [ethereum:0x6aCB6B451aAf8a411E2FD68d0497A02Ec43421f3](https://etherscan.io/address/0x6aCB6B451aAf8a411E2FD68d0497A02Ec43421f3)
@@ -110,7 +110,7 @@ function getAmountOfHETHforETH(uint256 amountETH, bool isContractCall, uint256 d
 ## Additional Findings
 To save time, we do not bother pointing out low-severity/informational issues or gas optimizations (unless the gas usage is particularly egregious). Instead, we focus only on high- and medium-severity findings which materially impact the contract's functionality and could harm users.
 
-### H01: Price updates are effectively unbounded due to lack of time-based constraint
+### M01: Price updates are effectively unbounded due to lack of time-based constraint
 Despite the 10% delta limit imposed upon hETH price updates, there is effectively no limit at all. A `maintainer` can simply issue many consecutive ~10% changes, even within a single block. Keep in mind that all current `maintainers` are EOAs, so this level of power is unacceptable. Such a price increase could be used to liquidate a small `hETH` position for all of the `WETH` liquidity in a Balancer pool.
 
 The code block enabling this attack vector is found in `HordETHStakingManager#setValidatorStats()`. The function is supposed to forcibly `pause()` the contract upon receiving unacceptable parameters. But all parameter checks are value-based, meaning they can easily be overridden across time (or across successive atomic calls to the function).
@@ -142,7 +142,7 @@ function setValidatorStats(uint256 newRewardsAmount, uint256 newTotalETHBalanceI
 }
 ```
 
-### M01: Implementation contract for `StakingConfiguration` is unverified on etherscan
+### L01: Implementation contract for `StakingConfiguration` is unverified on etherscan
 This means we are unable to inspect the behavior of the contract, most notably to understand which entities have power to configure system parameters.
 
 - entry point: [ethereum:0x51B2f83aac13adB9Ed826C4cdb593C88e6B61C92](https://etherscan.io/address/0x51B2f83aac13adB9Ed826C4cdb593C88e6B61C92#readProxyContract)
@@ -152,8 +152,8 @@ This means we are unable to inspect the behavior of the contract, most notably t
 **Summary judgment: UNSAFE**
 
 This review produced two security-related findings which must be addressed before this contract could be deemed safe for Balancer:
-- H01: Price updates are effectively unbounded due to lack of time-based constraint
-- M01: Implementation contract for `StakingConfiguration` is unverified on etherscan
+- M01: Price updates are effectively unbounded due to lack of time-based constraint
+- L01: Implementation contract for `StakingConfiguration` is unverified on etherscan
 
 There is also a potential risk of donation attacks, but these only impact downstream integrations (not Balancer directly). Integrators should be wary of the underlying token's manipulability via donations, which will propagate into the BPT price itself, and assess the unique risk this poses to their respective protocols.
 
