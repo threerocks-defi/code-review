@@ -40,6 +40,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
     - admin address: [ethereum:0xFa7D2a996aC6350f4b56C043112Da0366a59b74c](https://etherscan.io/address/0xFa7D2a996aC6350f4b56C043112Da0366a59b74c#code)
     - admin type: multisig
         - multisig threshold/signers: 5/9
+        - multisig timelock? YES: 2 days
         - trustworthy signers? NO
 
 ### Oracles
