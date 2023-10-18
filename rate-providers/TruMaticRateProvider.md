@@ -37,8 +37,10 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
         - trustworthy signers? NO
     - upgradeable component: `ValidatorShareProxy`
     ([ethereum:0xeA077b10A0eD33e4F68Edb2655C18FDA38F84712](https://etherscan.io/address/0xeA077b10A0eD33e4F68Edb2655C18FDA38F84712))
-    - admin address: [ethereum:0x5e3Ef299fDDf15eAa0432E6e66473ace8c13D908](https://etherscan.io/address/0x5e3Ef299fDDf15eAa0432E6e66473ace8c13D908)
-    - admin type: unknown.
+    - admin address: [ethereum:0xFa7D2a996aC6350f4b56C043112Da0366a59b74c](https://etherscan.io/address/0xFa7D2a996aC6350f4b56C043112Da0366a59b74c#code)
+    - admin type: multisig
+        - multisig threshold/signers: 5/9
+        - trustworthy signers? NO
 
 ### Oracles
 - [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
