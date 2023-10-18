@@ -63,6 +63,6 @@ To save time, we do not bother pointing out low-severity/informational issues or
 
 
 ## Conclusion
-**Summary judgment: tbd.**
+**Summary judgment: SAFE.**
 
-This Rate Provider computes the exchange rate using a ratio of total assets available to the Vault & vault shares.
+This Rate Provider computes the exchange rate using a ratio of total assets available to the Vault & vault shares. This Rate Provider is susceptible to donation attacks. 
