@@ -56,7 +56,6 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
             - multisig threshold/signers: 5/9
             - multisig timelock? YES: 2 days
             - trustworthy signers? NO
-https://etherscan.io/address/0x5e3Ef299fDDf15eAa0432E6e66473ace8c13D908#readProxyContract
 
 ### Oracles
 - [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
