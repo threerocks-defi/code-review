@@ -31,7 +31,7 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
         - multisig timelock? NO
         - trustworthy signers? NO
 
-- [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price). \<Delete this hint: If unchecked, delete all of the bullets below.\>
+- [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price).
     - upgradeable component: `TruMATIC`
         - entry point: ([ethereum:0xA43A7c62D56dF036C187E1966c03E2799d8987ed](https://etherscan.io/address/0xA43A7c62D56dF036C187E1966c03E2799d8987ed))
         - implementation reviewed: ([ethereum:0x2a9fD373Ed3Ce392bb5ad8Ee146CFAB66c9fAEae](https://etherscan.io/address/0x2a9fd373ed3ce392bb5ad8ee146cfab66c9faeae#code))
