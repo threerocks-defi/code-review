@@ -23,10 +23,12 @@ Each of the items below represents a common red flag found in Rate Provider cont
 If none of these is checked, then this might be a pretty great Rate Provider! If any of these is checked, we must thoroughly elaborate on the conditions that lead to the potential issue. Decision points are not binary; a Rate Provider can be safe despite these boxes being checked. A check simply indicates that thorough vetting is required in a specific area, and this vetting should be used to inform a holistic analysis of the Rate Provider.
 
 ### Administrative Privileges
-- [x] The Rate Provider is upgradeable (e.g., via a proxy architecture or an `onlyOwner` function that updates the price source address). 
+- [x] The Rate Provider is upgradeable (e.g., via a proxy architecture or an `onlyOwner` function that updates the price source address).
+    - implementation reviewed: [ethereum:0x6e8135b003F288aA4009D948e9646588861C5575](https://etherscan.io/address/0x6e8135b003f288aa4009d948e9646588861c5575#code)
     - admin address: [ethereum:0x71598A2209b4a9C3E23260Ac373180f4B637136d](https://etherscan.io/address/0x71598A2209b4a9C3E23260Ac373180f4B637136d)
     - admin type: multisig
         - multisig threshold/signers: 5/7
+        - multisig timelock? NO
         - trustworthy signers? NO
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price). \<Delete this hint: If unchecked, delete all of the bullets below.\>
