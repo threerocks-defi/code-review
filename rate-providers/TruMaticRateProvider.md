@@ -69,8 +69,8 @@ https://etherscan.io/address/0x5e3Ef299fDDf15eAa0432E6e66473ace8c13D908#readProx
 TruMaticRateProvider reads the `sharePrice` from the TruMatic Vault. Part of the `sharePrice` calculation logic includes the block
 ``` solidity
 function totalAssets() public view virtual override returns (uint256) {
-        return _asset.balanceOf(address(this));
-    }
+    return _asset.balanceOf(address(this));
+}
 ```
 which makes the TruMatic RateProvider susceptible to donation attacks.
 
