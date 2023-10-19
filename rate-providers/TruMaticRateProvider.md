@@ -32,18 +32,22 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
         - trustworthy signers? NO
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price). \<Delete this hint: If unchecked, delete all of the bullets below.\>
-    - upgradeable component: `TruMATIC` ([ethereum:0xA43A7c62D56dF036C187E1966c03E2799d8987ed](https://etherscan.io/address/0xA43A7c62D56dF036C187E1966c03E2799d8987ed))
-    - admin address: [ethereum:0x71598A2209b4a9C3E23260Ac373180f4B637136d](https://etherscan.io/address/0x71598A2209b4a9C3E23260Ac373180f4B637136d)
-    - admin type: multisig
-        - multisig threshold/signers: 5/7
-        - trustworthy signers? NO
-    - upgradeable component: `ValidatorShareProxy`
-    ([ethereum:0xeA077b10A0eD33e4F68Edb2655C18FDA38F84712](https://etherscan.io/address/0xeA077b10A0eD33e4F68Edb2655C18FDA38F84712))
-    - admin address: [ethereum:0xFa7D2a996aC6350f4b56C043112Da0366a59b74c](https://etherscan.io/address/0xFa7D2a996aC6350f4b56C043112Da0366a59b74c#code)
-    - admin type: multisig
-        - multisig threshold/signers: 5/9
-        - multisig timelock? YES: 2 days
-        - trustworthy signers? NO
+    - upgradeable component: `TruMATIC`
+        - entry point: ([ethereum:0xA43A7c62D56dF036C187E1966c03E2799d8987ed](https://etherscan.io/address/0xA43A7c62D56dF036C187E1966c03E2799d8987ed))
+        - implementation reviewed: ([ethereum:0x2a9fD373Ed3Ce392bb5ad8Ee146CFAB66c9fAEae](https://etherscan.io/address/0x2a9fd373ed3ce392bb5ad8ee146cfab66c9faeae#code))
+        - admin address: [ethereum:0x71598A2209b4a9C3E23260Ac373180f4B637136d](https://etherscan.io/address/0x71598A2209b4a9C3E23260Ac373180f4B637136d)
+        - admin type: multisig
+            - multisig threshold/signers: 5/7
+            - multisig timelock? NO
+            - trustworthy signers? NO
+    - upgradeable component: `ValidatorShare`
+        - entry point: ([ethereum:0xeA077b10A0eD33e4F68Edb2655C18FDA38F84712](https://etherscan.io/address/0xeA077b10A0eD33e4F68Edb2655C18FDA38F84712))
+        - implementation reviewed: ([ethereum:0xf98864DA30a5bd657B13e70A57f5718aBf7BAB31](https://etherscan.io/address/0xf98864da30a5bd657b13e70a57f5718abf7bab31#code))
+        - admin address: [ethereum:0xFa7D2a996aC6350f4b56C043112Da0366a59b74c](https://etherscan.io/address/0xFa7D2a996aC6350f4b56C043112Da0366a59b74c#code)
+        - admin type: multisig
+            - multisig threshold/signers: 5/9
+            - multisig timelock? YES: 2 days
+            - trustworthy signers? NO
 
 ### Oracles
 - [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
