@@ -183,7 +183,7 @@
             "factory": "",
             "upgradeableComponents": []
         },
-        "0xc7177B6E18c1Abd725F5b75792e5F7A3bA5DBC2c": {
+        "0x4b697C8c3220FcBdd02DFFa46db5a896ae7a0843": {
             "name": "TruMaticRateProvider",
             "summary": "safe",
             "review": "./TruMaticRateProvider.md",
