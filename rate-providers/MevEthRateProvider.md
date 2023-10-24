@@ -2,7 +2,7 @@
 
 ## Details
 - Reviewed by: @rabmarut
-- Checked by: TODO
+- Checked by: @baileyspraggins
 - Deployed at:
     - [ethereum:0xf518f2EbeA5df8Ca2B5E9C7996a2A25e8010014b](https://etherscan.io/address/0xf518f2ebea5df8ca2b5e9c7996a2a25e8010014b#code)
 - Audit report(s):
