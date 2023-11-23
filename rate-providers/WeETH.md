@@ -2,7 +2,7 @@
 
 ## Details
 - Reviewed by: @rabmarut
-- Checked by: TODO
+- Checked by: @mkflow27
 - Deployed at:
     - [ethereum:0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee](https://etherscan.io/address/0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee#readProxyContract)
 - Audit report(s):
