@@ -47,11 +47,11 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
     - upgradeable component: `EtherFiAdmin`
         - entry point: [ethereum:0x0EF8fa4760Db8f5Cd4d993f3e3416f30f942D705](https://etherscan.io/address/0x0EF8fa4760Db8f5Cd4d993f3e3416f30f942D705#readProxyContract)
         - implementation reviewed: [ethereum:0x9D6fC3cBaaD0ef36b2B3a4b4b311C9dd267a4aeA](https://etherscan.io/address/0x9d6fc3cbaad0ef36b2b3a4b4b311c9dd267a4aea#code)
-        - admin: **EOA ([ethereum:0xf8a86ea1Ac39EC529814c377Bd484387D395421e](https://etherscan.io/address/0xf8a86ea1Ac39EC529814c377Bd484387D395421e))**
+        - admin: same multisig as above
     - upgradeable component: `EtherFiOracle`
         - entry point: [ethereum:0x57AaF0004C716388B21795431CD7D5f9D3Bb6a41](https://etherscan.io/address/0x57AaF0004C716388B21795431CD7D5f9D3Bb6a41#readProxyContract)
         - implementation reviewed: [ethereum:0x698cB4508F13Cc12aAD36D2B64413C302B781d9A](https://etherscan.io/address/0x698cb4508f13cc12aad36d2b64413c302b781d9a#code)
-        - admin: **same EOA as above**
+        - admin: same multisig as above
 
 ### Oracles
 - [x] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
@@ -60,10 +60,11 @@ If none of these is checked, then this might be a pretty great Rate Provider! If
         - The entry point to `LiquidityPool#rebase()` is `MembershipManager#rebase()`, which is callable only by the `etherFiAdmin`.
             - The current `etherFiAdmin` is the upgradeable `EtherFiAdmin` contract described above.
             - The entry point to `MembershipManager#rebase()` is `EtherFiAdmin#executeTasks()`, which can be called by anyone on the `admins` list.
-                - The `admins` list is configurable by the `owner`, which is the **EOA described above**.
+                - The `admins` list is configurable by the `owner`, which is the multisig described above.
     - any protections? YES
         - The current `EtherFiAdmin` performs many checks within the `EtherFiOracle` to determine the validity of an incoming report.
-        - **However, the `EtherFiAdmin` and `EtherFiOracle` are both upgradeable by an EOA, meaning that the behavior can completely change on the whims of a single entity.**
+        - Given these constraints, it seems difficult for one of the `admins` to produce an invalid report, so the most important consideration is not the list of `admins`.
+        - The most important consideration is the upgrade powers of the multisig. These are considered acceptable by this reviewer, but every user should assert their own security preferences.
 
 ```solidity
 // Context: LiquidityPool
@@ -151,7 +152,7 @@ function _handleAccruedRewards(IEtherFiOracle.OracleReport calldata _report) int
 ### Common Manipulation Vectors
 - [ ] The Rate Provider is susceptible to donation attacks.
 
-Note that this Rate Provider is not susceptible to donation attacks due to the way the `LiquidityPool` accounts for received ETH:
+Note that this Rate Provider is **not** susceptible to donation attacks due to the way the `LiquidityPool` accounts for received ETH:
 
 ```solidity
 // Context: LiquidityPool
@@ -184,6 +185,10 @@ To save time, we do not bother pointing out low-severity/informational issues or
 - N/A
 
 ## Conclusion
-**Summary judgment: UNSAFE**
+**Summary judgment: SAFE**
 
-The `EtherFiAdmin` ultimately determines how rebases (wrapped token price hikes) are propagated through the system, and it is upgradeable by an EOA. We should pay no mind to any logic contained within the current implementation because it could be changed at a moment's notice by a single trusted entity. If this entity can find a way to profit off a large price hike, there is nothing stopping it from issuing one atomically.
+The Rate Provider embedded within the `weETH` token tracks an exchange rate based on internal accounting of ETH available to the system. This internal accounting is always updated in synchronization with deposits and withdrawals, and is properly handled on arbitrary receipt of ETH to avoid donation attacks. The only exception to this synchronous accounting system is the `rebase()` function described in this report.
+
+This reviewer determines that the `rebase()` function is not only critical to the behavior of the LST but is also adequately protected against centralization risk, even in the case of a rogue administrator.
+
+Note that this review makes no determination as to the security of the `weETH` token itself or the ether.fi protocol, as it is laser-focused on Balancer integration with the embedded Rate Provider. Before investing your funds in any DeFi protocol, please consult its source code, documentation, and historical audits; and be aware of the risks when interacting with upgradable smart contracts.
