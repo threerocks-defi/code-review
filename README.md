@@ -1,5 +1,66 @@
-# code-review
+## Foundry
 
-A collection of smart contract code reviews performed upon friendly request.
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-NOTHING IN THIS REPOSITORY CONSTITUTES A FORMAL AUDIT, AND CODE SHOULD NEVER BE DEPLOYED TO PRODUCTION WITHOUT A FORMAL AUDIT. REVIEWERS ARE HUMAN; MISTAKES WILL BE MADE AND BUGS MISSED. REVIEWERS ARE NOT LIABLE FOR ANY INCIDENT THAT OCCURS POST-REVIEW. THIS IS MERELY A FRIENDLY PEER-REVIEW SERVICE AND SHOULD NOT BE TREATED AS A STAMP OF APPROVAL. REVIEWED CODE IS NOT NECESSARILY BUG-FREE. ALWAYS TRIPLE-CHECK BEFORE INTERACTING WITH SMART CONTRACTS, AND DO NOT TRUST REVIEWERS ON THE BASIS OF REPUTATION ALONE.
+Foundry consists of:
+
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+
+## Documentation
+
+https://book.getfoundry.sh/
+
+## Usage
+
+### Build
+
+```shell
+$ forge build
+```
+
+### Test
+
+```shell
+$ forge test
+```
+
+### Format
+
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```
