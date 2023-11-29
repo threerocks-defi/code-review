@@ -39,7 +39,12 @@ If none of these is checked, then this might be a pretty great Rate Provider!s c
 A malicious Vault could be added that is allowed to mint/burn `osTokenVaultController` shares and thus influence the rate. However since the relationship between `totalShares` and `totalAssets` always gets updated simultaneously as part of the `osTokenVaultController` this relationship is bound by the business logic implemented by StakeWise and is considered working.
 
 ### Oracles
-- [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
+- [x] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
+    - source: `keeper` sets `avgRewardPerSecond` in the `osTokenVaultController` via `setAvgRewardPerSecond`. 
+    - any protections? YES
+        - guarded behind a time delay `canUpdateRewards`
+        - bound by threshold `_maxAvgRewardPerSecond`
+        - requires valid signatures
 
 - [ ] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price).
 
