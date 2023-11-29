@@ -28,13 +28,13 @@ If none of these is checked, then this might be a pretty great Rate Provider!s c
 - [ ] The Rate Provider is upgradeable (e.g., via a proxy architecture or an `onlyOwner` function that updates the price source address).
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price). 
-    - upgradeable component: `VaultsRegistry` ([ethereum:0x3a0008a588772446f6e656133C2D5029CC4FC20E](https://etherscan.io/address/0x3a0008a588772446f6e656133C2D5029CC4FC20E#code))
+    - upgradeable component: `OsTokenVaultController` ([ethereum:0x2A261e60FB14586B474C208b1B7AC6D0f5000306](https://etherscan.io/address/0x2A261e60FB14586B474C208b1B7AC6D0f5000306#code))
     - admin address: [\<ethereum:0x144a98cb1CdBb23610501fE6108858D9B7D24934\>](https://etherscan.io/address/0x144a98cb1CdBb23610501fE6108858D9B7D24934#code)
     - admin type: multisig
         - multisig threshold/signers: 4/7
         - multisig timelock? NO
         - trustworthy signers? NO
-- [x] All `Vaults` are upgradeable as of now. 
+    - context: the `avgRewardPerSecond` can be set by a `keeper`. This `keeper` can be changed by the `OsTokenVaultController`'s owner.
 
 A malicious Vault could be added that is allowed to mint/burn `osTokenVaultController` shares and thus influence the rate. However since the relationship between `totalShares` and `totalAssets` always gets updated simultaneously as part of the `osTokenVaultController` this relationship is bound by the business logic implemented by StakeWise and is considered working.
 
