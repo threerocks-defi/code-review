@@ -43,6 +43,7 @@ If none of these is checked, then this might be a pretty great Rate Provider!s c
         - guarded behind a time delay `canUpdateRewards`
         - bound by threshold `_maxAvgRewardPerSecond`
         - requires valid signatures
+        - NOTE: these protections do not apply to the `owner` multisig, which has the power to completely replace the `keeper` contract (and should therefore be assumed to have complete authority over setting `avgRewardsPerSecond`.
 
 - [ ] Price data is expected to be volatile (e.g., because it represents an open market price instead of a (mostly) monotonically increasing price).
 
