@@ -29,13 +29,12 @@ If none of these is checked, then this might be a pretty great Rate Provider!s c
 
 - [x] Some other portion of the price pipeline is upgradeable (e.g., the token itself, an oracle, or some piece of a larger system that tracks the price). 
     - upgradeable component: `OsTokenVaultController` ([ethereum:0x2A261e60FB14586B474C208b1B7AC6D0f5000306](https://etherscan.io/address/0x2A261e60FB14586B474C208b1B7AC6D0f5000306#code))
-    - admin address: [\<ethereum:0x144a98cb1CdBb23610501fE6108858D9B7D24934\>](https://etherscan.io/address/0x144a98cb1CdBb23610501fE6108858D9B7D24934#code)
+    - admin address: ([ethereum:0x144a98cb1CdBb23610501fE6108858D9B7D24934](https://etherscan.io/address/0x144a98cb1CdBb23610501fE6108858D9B7D24934#code))
     - admin type: multisig
         - multisig threshold/signers: 4/7
         - multisig timelock? NO
         - trustworthy signers? NO
     - context: the `avgRewardPerSecond` can be set by a `keeper`. This `keeper` can be changed by the `OsTokenVaultController`'s owner.
-
 
 ### Oracles
 - [x] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
@@ -59,4 +58,4 @@ To save time, we do not bother pointing out low-severity/informational issues or
 ## Conclusion
 **Summary judgment: SAFE**
 
-This is a solid rateProvider that reports the osETH <> ETH exchange rate. It should work well with pool operations.
+This is a solid rateProvider that reports the osETH <> ETH exchange rate. While part of the price data is based on off-chain components, the off-chain component is guarded behind solid validity checks. The rate Provider should work well with pool operations. 
