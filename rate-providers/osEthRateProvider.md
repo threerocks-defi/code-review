@@ -36,7 +36,7 @@ If none of these is checked, then this might be a pretty great Rate Provider!s c
         - trustworthy signers? NO
 - [x] All `Vaults` are upgradeable as of now. 
 
-A malicious Vault could be added that is allowed to mint/burn `osTokenVaultController` shares and thus influence the rate. However a potential exploit needs to be further investigated, as the relationship between `totalShares` and `totalAssets` always gets updated simultaneously and is bound by the logic implemented in the `osTokenVaultController`.
+A malicious Vault could be added that is allowed to mint/burn `osTokenVaultController` shares and thus influence the rate. However since the relationship between `totalShares` and `totalAssets` always gets updated simultaneously as part of the `osTokenVaultController` this relationship is bound by the business logic implemented by StakeWise and is considered working.
 
 ### Oracles
 - [ ] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
