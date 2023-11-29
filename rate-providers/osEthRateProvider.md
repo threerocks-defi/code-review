@@ -36,7 +36,6 @@ If none of these is checked, then this might be a pretty great Rate Provider!s c
         - trustworthy signers? NO
     - context: the `avgRewardPerSecond` can be set by a `keeper`. This `keeper` can be changed by the `OsTokenVaultController`'s owner.
 
-A malicious Vault could be added that is allowed to mint/burn `osTokenVaultController` shares and thus influence the rate. However since the relationship between `totalShares` and `totalAssets` always gets updated simultaneously as part of the `osTokenVaultController` this relationship is bound by the business logic implemented by StakeWise and is considered working.
 
 ### Oracles
 - [x] Price data is provided by an off-chain source (e.g., a Chainlink oracle, a multisig, or a network of nodes).
