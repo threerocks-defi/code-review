@@ -2,7 +2,7 @@
 
 ## Details
 - Reviewed by: @rabmarut
-- Checked by: TODO
+- Checked by: @baileyspraggins
 - Deployed at:
     - [polygon:0x76D8B79Fb9afD4dA89913458C90B6C09676628E2](https://polygonscan.com/address/0x76D8B79Fb9afD4dA89913458C90B6C09676628E2#code)
 - Audit report(s):
