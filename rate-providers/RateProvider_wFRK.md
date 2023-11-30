@@ -9,7 +9,7 @@
     - [Kuma Protocol audits](https://docs.kuma.bond/kuma-protocol/ressources/security-and-audits)
 
 ## Context
-TODO
+`FRK` is a KUMA interest-bearing token backed by KUMA NFTs, themselves backed by French 360 days T-Bills. The majority of DeFi protocols do not support rebasing tokens, so an ERC-4626 wrapper called `wFRK` has been deployed. This Rate Provider covers the exchange rate between the wrapped `wFRK` and the underlying `FRK`.
 
 ## Review Checklist: Bare Minimum Compatibility
 Each of the items below represents an absolute requirement for the Rate Provider. If any of these is unchecked, the Rate Provider is unfit to use.
