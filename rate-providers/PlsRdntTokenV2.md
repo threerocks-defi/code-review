@@ -2,7 +2,7 @@
 
 ## Details
 - Reviewed by: @rabmarut
-- Checked by: TODO
+- Checked by: @baileyspraggins
 - Deployed at:
     - [arbitrum:0x6dbF2155B0636cb3fD5359FCcEFB8a2c02B6cb51](https://arbiscan.io/address/0x6dbf2155b0636cb3fd5359fccefb8a2c02b6cb51#readProxyContract)
 - Audit report(s):
